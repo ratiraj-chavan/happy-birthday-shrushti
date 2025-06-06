@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffcce6;
+  color: #333;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: "Dancing Script", cursive;
+  font-size: 4rem;
+  color: #ff1493;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ff69b4;
+  margin-top: 0.5rem;
+}
+
+.note-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+
+.note-card:hover {
+  transform: rotate(1deg) scale(1.02);
+}
+
+.note-content {
+  line-height: 1.6;
+}
+
+.note-content h2 {
+  font-family: "Dancing Script", cursive;
+  color: #ff1493;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: right;
+  color: #ff1493;
+}
+
+.cake-container {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.cake {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.cake-bottom {
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  background: #ff9eb5;
+  border-radius: 10px;
+  bottom: 0;
+}
+
+.cake-middle {
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  background: #ffb6c1;
+  border-radius: 10px;
+  bottom: 70px;
+  left: 10px;
+}
+
+.cake-top {
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  background: #ffc0cb;
+  border-radius: 10px;
+  bottom: 130px;
+  left: 20px;
+}
+
+.candle {
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  background: #fdfd96;
+  bottom: 180px;
+  left: 95px;
+  border-radius: 5px;
+}
+
+.flame {
+  position: absolute;
+  width: 15px;
+  height: 30px;
+  background: #ff9d00;
+  border-radius: 50% 50% 20% 20%;
+  bottom: 40px;
+  left: -2.5px;
+  animation: flicker 1s infinite alternate;
+  box-shadow: 0 0 20px #ff9d00, 0 0 40px #ff9d00;
+}
+
+.plate {
+  position: absolute;
+  width: 250px;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  bottom: -10px;
+  left: -25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.celebrate-btn {
+  background-color: #ff1493;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+}
+
+.celebrate-btn:hover {
+  background-color: #ff69b4;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+}
+
+.celebrate-btn:active {
+  transform: translateY(0);
+}
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff1493;
+  opacity: 0.7;
+}
+
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff1493;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff1493;
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: -10px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(100vh) rotate(45deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) rotate(45deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .note-card {
+    padding: 1.5rem;
+  }
+
+  .cake {
+    transform: scale(0.8);
+  }
+}
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  background: red;
+  clip-path: polygon(
+    50% 0%,
+    61% 10%,
+    70% 20%,
+    75% 30%,
+    76% 40%,
+    75% 50%,
+    70% 60%,
+    60% 70%,
+    50% 80%,
+    40% 70%,
+    30% 60%,
+    25% 50%,
+    24% 40%,
+    25% 30%,
+    30% 20%,
+    39% 10%
+  );
+}
+
+@keyframes heartFloat {
+  to {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
